@@ -90,7 +90,7 @@ async function copyInstructions() {
 function renderProviders() {
   $("#ai-grid").innerHTML = providers.map((provider) => `<article class="ai-card">
     <div class="provider-mark" aria-hidden="true">${provider.name[0]}</div><h3>${provider.name}</h3><p>${provider.description}</p>
-    <div class="card-actions"><a class="button button--ghost" href="${provider.url}" target="_blank" rel="noopener noreferrer" aria-label="Launch ${provider.name} in a new tab">Launch <span aria-hidden="true">↗</span></a><button class="text-button js-copy-launch" type="button" data-url="${provider.url}" data-provider="${provider.name}">Copy Instructions &amp; Launch</button></div>
+    <div class="card-actions"><a class="button button--ghost" href="${provider.url}" target="_blank" rel="noopener noreferrer" aria-label="Launch ${provider.name} in a new tab"><span class="button__label">Launch</span><span aria-hidden="true">↗</span></a><button class="text-button js-copy-launch" type="button" data-url="${provider.url}" data-provider="${provider.name}">Copy Instructions &amp; Launch</button></div>
   </article>`).join("");
 }
 
