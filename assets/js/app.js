@@ -90,7 +90,7 @@ async function copyInstructions() {
 function renderProviders() {
   $("#ai-grid").innerHTML = providers.map((provider) => `<article class="ai-card">
     <div class="provider-mark" aria-hidden="true">${provider.name[0]}</div><h3>${provider.name}</h3><p>${provider.description}</p>
-    <div class="card-actions"><a class="button button--ghost" href="${provider.url}" target="_blank" rel="noopener noreferrer" aria-label="Launch ${provider.name} in a new tab"><span class="button__label">Launch</span><span aria-hidden="true">↗</span></a><button class="text-button js-copy-launch" type="button" data-url="${provider.url}" data-provider="${provider.name}">Copy Instructions &amp; Launch</button></div>
+    <div class="card-actions"><a class="button button--ghost" href="${provider.url}" target="_blank" rel="noopener noreferrer" aria-label="Launch ${provider.name} in a new tab"><span class="button__label">Launch</span><span aria-hidden="true">↗</span></a><a class="text-button js-copy-launch" href="${provider.url}" target="_blank" rel="noopener noreferrer" data-provider="${provider.name}">Copy Instructions &amp; Launch</a></div>
   </article>`).join("");
 }
 
@@ -124,16 +124,10 @@ loadInstructions().catch(() => {
   $("#instructions-content").textContent = "Instructions could not be loaded in this context. Open PROJECT_INSTRUCTIONS.txt directly.";
 });
 
-$("#ai-grid").addEventListener("click", async (event) => {
-  const button = event.target.closest(".js-copy-launch");
-  if (!button) return;
-  const providerWindow = window.open("about:blank", "_blank");
-  if (providerWindow) providerWindow.opener = null;
-  await copyInstructions();
-  if (providerWindow) providerWindow.location = button.dataset.url;
-  else {
-    showToast("Your browser blocked the new tab. Use the Launch button to continue.", true);
-  }
+$("#ai-grid").addEventListener("click", (event) => {
+  const link = event.target.closest(".js-copy-launch");
+  if (!link) return;
+  copyInstructions();
 });
 
 $("#prompt-grid").addEventListener("click", (event) => {
