@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A private AI study companion for a men's-group study of Seth Troutt's Authentic Masculinity.">
+  <meta name="theme-color" content="#f2eee5">
+  <title>Authentic Masculinity | Men's Group AI Study Companion</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="assets/js/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Authentic Masculinity home"><span>AM</span> Authentic Masculinity</a>
+    <nav aria-label="Main navigation">
+      <a href="#how">How it works</a><a href="#materials">Materials</a><a href="#choose-ai">Choose AI</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero__content">
+        <p class="eyebrow">Men's group study resource</p>
+        <h1>Authentic<br><em>Masculinity</em></h1>
+        <p class="subtitle">Men's Group AI Study Companion</p>
+        <p class="lede">This site contains the shared study framework and chapter materials for our men's-group study of Seth Troutt's <cite>Authentic Masculinity</cite>. Each guy can load the same materials into his own AI workspace while keeping his conversations and personal reflections private.</p>
+        <p class="manifesto">Study the book. Search the text. Wrestle with the ideas. Apply it personally.</p>
+        <div class="actions"><a class="button button--primary" href="#choose-ai">Start Your Private Study</a><a class="button button--ghost" href="#materials">Browse Study Materials</a></div>
+      </div>
+      <aside class="hero__note" aria-label="Private by design"><span class="rule"></span><strong>Your study. Your account.</strong><p>A shared framework does not mean a shared conversation.</p></aside>
+    </section>
+
+    <section class="section" id="how">
+      <div class="section-heading"><p class="eyebrow">A simple setup</p><h2>How it works</h2><p>Set up once, then add each reading as the group progresses.</p></div>
+      <ol class="steps">
+        <li><span>01</span><div><h3>Choose your AI</h3><p>Use ChatGPT, Gemini, Grok, Perplexity, or another capable LLM.</p></div></li>
+        <li><span>02</span><div><h3>Copy the study instructions</h3><p>Paste <code>PROJECT_INSTRUCTIONS.txt</code> into the AI's project, workspace, or custom-instruction area when available.</p></div></li>
+        <li><span>03</span><div><h3>Add the chapter files</h3><p>Upload both the chapter PDF and its companion knowledge file.</p></div></li>
+        <li><span>04</span><div><h3>Start studying</h3><p>Ask questions, prepare for group discussion, examine biblical arguments, or use the AI for private personal reflection.</p></div></li>
+      </ol>
+      <div class="privacy-inline"><strong>Your conversations stay in your own AI account.</strong> You are not joining a shared men's-group chat.</div>
+    </section>
+
+    <section class="section section--tint" id="choose-ai">
+      <div class="section-heading"><p class="eyebrow">Open your workspace</p><h2>Choose your AI</h2><p>Copy the common study framework, then work in the assistant you prefer.</p></div>
+      <div class="ai-grid" id="ai-grid"></div>
+      <div class="copy-feature">
+        <button class="button button--primary js-copy-instructions" type="button">Copy Study Instructions</button>
+        <button class="text-button" type="button" data-open-instructions>Preview instructions</button>
+        <p id="instruction-count">Calculating instruction length…</p>
+      </div>
+      <details class="guide">
+        <summary>Using ChatGPT <span aria-hidden="true">＋</span></summary>
+        <div><ol><li>Create a new Project.</li><li>Name it “Authentic Masculinity Study” or similar.</li><li>Paste <code>PROJECT_INSTRUCTIONS.txt</code> into Project Instructions.</li><li>Upload the chapter PDF.</li><li>Upload the companion Knowledge TXT file.</li><li>Start a new conversation inside your private Project.</li></ol>
+        <p class="callout"><strong>Create your own Project</strong> rather than joining a shared Project if you want your study conversations and personal reflections to remain private from the group.</p></div>
+      </details>
+    </section>
+
+    <section class="section" id="materials">
+      <div class="section-heading"><p class="eyebrow">Readings available now</p><h2>Current study materials</h2><p>More chapters will be added as the group progresses.</p></div>
+      <div id="chapter-list" class="chapter-list"></div>
+      <p class="source-note"><strong>Source hierarchy:</strong> The PDF contains the actual book pages and is the primary source. The companion knowledge file organizes the chapter's arguments, themes, examples, and discussion hooks for better AI retrieval. If they ever differ, the PDF controls.</p>
+    </section>
+
+    <section class="section section--dark" aria-labelledby="files-title">
+      <div class="section-heading"><p class="eyebrow">Two sources, one reading</p><h2 id="files-title">About the companion files</h2></div>
+      <div class="file-explain"><article><span>Primary source PDF</span><h3>The book pages themselves.</h3><p>This controls when exact wording, nuance, or attribution matters.</p></article><article><span>Companion knowledge file</span><h3>A structured retrieval aid.</h3><p>It maps argument flow, major ideas, examples, distinctions, retrieval notes, and discussion questions. The AI should use both files.</p></article></div>
+    </section>
+
+    <section class="section" id="prompts">
+      <div class="section-heading"><p class="eyebrow">Begin the conversation</p><h2>Try these prompts</h2><p>Copy one, paste it into your private workspace, and follow the question wherever it leads.</p></div>
+      <div class="prompt-grid" id="prompt-grid"></div>
+    </section>
+
+    <section class="privacy section" aria-labelledby="privacy-title"><p class="eyebrow">Private by design</p><h2 id="privacy-title">One framework.<br>Your own conversation.</h2><p>The repository gives everyone the same study framework, but each participant creates his own AI workspace. Your questions, personal reflections, and conversations stay in your own account rather than appearing in a shared group Project.</p></section>
+  </main>
+
+  <footer><div><strong>Authentic Masculinity</strong><p>Men's Group AI Study Companion</p></div><p class="legal">For group members who already have lawful access to the book. Do not redistribute book pages beyond the group or use these files as a substitute for obtaining the book.<br><br>Unofficial men's-group study resource. <cite>Authentic Masculinity</cite> and the underlying book text belong to their respective copyright holders. This project is not affiliated with or endorsed by the author or publisher.</p></footer>
+
+  <dialog id="instructions-dialog" aria-labelledby="dialog-title"><div class="dialog-head"><div><p class="eyebrow">Study framework</p><h2 id="dialog-title">Project Instructions</h2></div><button class="icon-button" type="button" data-close-instructions aria-label="Close instructions">×</button></div><p>Copy this entire text into your AI workspace's instruction area.</p><pre id="instructions-content" tabindex="0">Loading…</pre><div class="dialog-actions"><button class="button button--primary js-copy-instructions" type="button">Copy Instructions</button><button class="button button--ghost" type="button" data-close-instructions>Close</button></div></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+</body>
+</html>
